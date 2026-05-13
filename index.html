@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FileNest - 本地文件管理系统</title>
+
+  <style>
+    :root {
+      --accent: #6c8bef;
+      --bg: #0f172a;
+      --bg2: #1e3a8a;
+      --glass: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--bg), var(--bg2));
+      color: #fff;
+    }
+
+    /* NAV */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .logo img {
+      width: 36px;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      opacity: 0.8;
+    }
+
+    .nav a:hover {
+      opacity: 1;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
+
+    .hero img {
+      width: 120px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 30px rgba(108,139,239,0.6));
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    .hero p {
+      margin-top: 12px;
+      opacity: 0.8;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 12px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      margin: 8px;
+      font-size: 14px;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: #fff;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 60px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card p {
+      opacity: 0.7;
+      font-size: 14px;
+    }
+
+    /* PREVIEW */
+    .preview {
+      padding: 60px 40px;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 20px;
+    }
+
+    .preview img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    /* ARCH */
+    .arch {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    pre {
+      background: var(--glass);
+      padding: 20px;
+      border-radius: 12px;
+      display: inline-block;
+      text-align: left;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="logo">
+    <img src="assets/icon.png" />
+    FileNest
+  </div>
+  <div>
+    <a href="#">GitHub</a>
+    <a href="#">下载</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="assets/icon.png" />
+  <h1>你的文件，不只是存储</h1>
+  <p>结构化 · 标签化 · 本地优先</p>
+
+  <div class="buttons">
+    <button class="primary">下载 Windows</button>
+    <button class="ghost">GitHub</button>
+  </div>
+</section>
+
+<section class="features">
+  <div class="card">
+    <h3>文件扫描</h3>
+    <p>递归扫描 + 实时监听，自动构建索引</p>
+  </div>
+
+  <div class="card">
+    <h3>多媒体预览</h3>
+    <p>图片 / 视频 / PDF / DOCX 全支持</p>
+  </div>
+
+  <div class="card">
+    <h3>标签系统</h3>
+    <p>无限层级标签树 + 多维筛选</p>
+  </div>
+
+  <div class="card">
+    <h3>内容管理</h3>
+    <p>番号 / 人物 / 分类结构化管理</p>
+  </div>
+
+  <div class="card">
+    <h3>网站收藏</h3>
+    <p>分组管理 + favicon 自动识别</p>
+  </div>
+
+  <div class="card">
+    <h3>本地数据库</h3>
+    <p>SQLite(WASM)，零依赖跨平台</p>
+  </div>
+</section>
+
+<section class="preview">
+  <h2>界面预览</h2>
+  <div class="preview-grid">
+    <img src="assets/preview-1.png" />
+    <img src="assets/preview-2.png" />
+    <img src="assets/preview-3.png" />
+    <img src="assets/preview-4.png" />
+  </div>
+</section>
+
+<section class="arch">
+  <h2>系统架构</h2>
+  <pre>
+Renderer
+  ↓ IPC
+Service Layer
+  ↓
+sql.js (SQLite WASM)
+  ↓
+Local File System
+  </pre>
+</section>
+
+<footer>
+  © 2026 FileNest · Local-first File Manager
+</footer>
+
+</body>
+</html>
